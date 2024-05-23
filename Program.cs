@@ -23,7 +23,7 @@ namespace Wuwa_fpsunlocker
             Console.WriteLine("Các bước:");
             Console.WriteLine("1) PHẢI ĐỂ FPS TRONG GAME LÀ 60FPS");
             Console.WriteLine("2) Tắt game");
-            Console.WriteLine("3) Tắt Vsync và không được điều chỉnh FPS sau khi chạy file, chỉnh thì sẽ mất fps custom");
+            Console.WriteLine("3) Tắt Vsync và không được điều chỉnh FPS sau khi chạy file, chỉnh thì sẽ mất 120 fps");
             Console.WriteLine("4) Và thế là xong\n");
             Console.WriteLine("Author: Discord: impots");
             Console.WriteLine("\nNhập đường dẫn đến file SQLite \n (Ví dụ C:\\Wuthering Waves\\Wuthering Waves Game\\Client\\Saved\\LocalStorage\\LocalStorage.db):");
