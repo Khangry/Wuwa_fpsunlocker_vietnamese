@@ -20,18 +20,13 @@ namespace Wuwa_fpsunlocker
                                                 | |                                                  
                                                 |_|                                                  
 ");
-            Console.WriteLine("Steps:");
-            Console.WriteLine("1) Make sure to SET the FPS limit to 60FPS BEFORE");
-            Console.WriteLine("2) Then CLOSE the game");
-            Console.WriteLine("3) Make sure within games settings to DISABLE vsync and to NOT touch the FPS Limit AFTER patch");
-            Console.WriteLine("4) Profit\n");
-            Console.WriteLine("NOTE:");
-            Console.WriteLine("Game looks poorly optimized and bugged.");
-            Console.WriteLine("Discord: impots");
-            Console.WriteLine("Press any key to unlock your FPS.");
-            Console.ReadKey();
-
-            Console.WriteLine("\nEnter the FULL path to the SQLite database file (e.g., C:\\Wuthering Waves\\Wuthering Waves Game\\Client\\Saved\\LocalStorage\\LocalStorage.db):");
+            Console.WriteLine("Các bước:");
+            Console.WriteLine("1) PHẢI ĐỂ FPS TRONG GAME LÀ 60FPS");
+            Console.WriteLine("2) Tắt game");
+            Console.WriteLine("3) Tắt Vsync và không được điều chỉnh FPS sau khi chạy file, chỉnh thì sẽ mất fps custom");
+            Console.WriteLine("4) Và thế là xong\n");
+            Console.WriteLine("Author: Discord: impots");
+            Console.WriteLine("\nNhập đường dẫn đến file SQLite \n (Ví dụ C:\\Wuthering Waves\\Wuthering Waves Game\\Client\\Saved\\LocalStorage\\LocalStorage.db):");
             string dbPath = Console.ReadLine();
             string connectionString = $"Data Source={dbPath};Version=3;";
 
@@ -80,7 +75,7 @@ namespace Wuwa_fpsunlocker
                     {
                         updateCommand.Parameters.AddWithValue("@value", updatedGameQualitySettingJson);
                         int rowsAffected = updateCommand.ExecuteNonQuery();
-                        Console.WriteLine($"\n{rowsAffected} row(s) updated.\nGame should be patched!");
+                        Console.WriteLine($"\n{rowsAffected} row(s) đã được cập nhật.\nĐã bật 120 FPS!");
                     }
                 }
                 catch (Exception ex)
@@ -89,7 +84,7 @@ namespace Wuwa_fpsunlocker
                 }
             }
 
-            Console.WriteLine("\nPress any key to exit...");
+            Console.WriteLine("\nẤn nút bất kì để thoát...");
             Console.ReadKey();
         }
     }
