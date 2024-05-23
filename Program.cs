@@ -24,10 +24,21 @@ namespace Wuwa_fpsunlocker
             Console.WriteLine("1) PHẢI ĐỂ FPS TRONG GAME LÀ 60FPS");
             Console.WriteLine("2) Tắt game");
             Console.WriteLine("3) Tắt Vsync và không được điều chỉnh FPS sau khi chạy file, chỉnh thì sẽ mất 120 fps");
-            Console.WriteLine("4) Và thế là xong\n");
+            Console.WriteLine("4) Và thế là xong");
             Console.WriteLine("Author: Discord: impots");
-            Console.WriteLine("\nNhập đường dẫn đến file SQLite \n (Ví dụ C:\\Wuthering Waves\\Wuthering Waves Game\\Client\\Saved\\LocalStorage\\LocalStorage.db):");
-            string dbPath = Console.ReadLine();
+            Console.WriteLine("Nhập đường dẫn đến file SQLite (Ví dụ: C:\\Wuthering Waves\\Wuthering Waves Game\\Client\\Saved\\LocalStorage)");
+            Console.Write("Đường dẫn đến file SQLite: ");
+            string directoryPath = Console.ReadLine();
+            string fileName = "LocalStorage.db";
+            string dbPath = Path.Combine(directoryPath, fileName);
+            if (!File.Exists(dbPath))
+            {
+                Console.WriteLine($"Không tìm thấy file: {fileName}");
+                Console.WriteLine("Ấn nút bất kì để thoát...");
+                Console.ReadKey();
+                Environment.Exit(0); // Terminate the program
+            }
+            Console.WriteLine($"Đã tìm thấy file: {dbPath}");
             string connectionString = $"Data Source={dbPath};Version=3;";
 
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
@@ -75,12 +86,12 @@ namespace Wuwa_fpsunlocker
                     {
                         updateCommand.Parameters.AddWithValue("@value", updatedGameQualitySettingJson);
                         int rowsAffected = updateCommand.ExecuteNonQuery();
-                        Console.WriteLine($"\n{rowsAffected} row(s) đã được cập nhật.\nĐã bật 120 FPS!");
+                        Console.WriteLine("Đã bật 120 FPS!");
                     }
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("An error occurred: " + ex.Message);
+                    Console.WriteLine("Đã có lỗi xảy ra: " + ex.Message);
                 }
             }
 
